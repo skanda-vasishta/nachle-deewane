@@ -12,7 +12,7 @@ const navLinks = [
 
 const judges = [
   {
-    name: "Amrita Batra",
+    name: "Amita Batra",
     title: "Bollywood Fusion Judge",
     bio: "Details coming soon.",
   },
@@ -319,7 +319,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <span className="text-[#FF6B1A] font-semibold">March 7th, 2026</span>
                 <span className="text-[#D4AF37]/50">|</span>
-                <span className="text-[#FFF8E7]/60">4:00 PM</span>
+                <span className="text-[#FFF8E7]/60">4:30 PM</span>
               </div>
               <div className="flex flex-col items-center text-center">
                 <span className="text-[#FFF8E7]/80 font-medium">Arlington Theatre, Santa Barbara</span>
@@ -719,6 +719,7 @@ export default function Home() {
       <footer className="py-12 border-t border-[#D4AF37]/10 bg-[#0D0D0D]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+
             {/* Contact */}
             <div className="text-center md:text-left">
               <p className="text-[#D4AF37] font-medium tracking-wide mb-1">
@@ -730,6 +731,11 @@ export default function Home() {
               >
                 E: info@ucsbdhadkan.com
               </a>
+
+              {/* ooshirts.com Ad */}
+              <div className="mt-6 text-xs text-[#FFF8E7]/50">
+                UCSB Dhadkan endorses <a href="https://www.ooshirts.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B1A]">ooshirts.com</a> for fast, affordable, and high-quality custom t-shirts!
+              </div>
             </div>
 
             {/* Footer Nav */}
