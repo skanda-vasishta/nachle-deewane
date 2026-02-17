@@ -7,34 +7,37 @@ const navLinks = [
   { name: "JUDGES", href: "#judges" },
   { name: "TEAMS", href: "#teams" },
   { name: "MEMBERS", href: "#members" },
-  { name: "CHARITY", href: "#charity" },
 ];
 
 const judges = [
   {
-    name: "Judge 1",
-    title: "TBA",
+    name: "Amrita Batra",
+    title: "Bollywood Fusion Judge",
     bio: "Details coming soon.",
   },
   {
-    name: "Judge 2",
-    title: "TBA",
+    name: "Saffat Al Munsur",
+    title: "Bollywood Fusion Judge",
     bio: "Details coming soon.",
   },
   {
-    name: "Judge 3",
-    title: "TBA",
+    name: "Jai Loonker",
+    title: "Bollywood Fusion Judge",
     bio: "Details coming soon.",
   },
 ];
 
 const teams = [
-  { name: "UCLA Naya Zamaana", style: "Bollywood-Fusion" },
-  { name: "UC Berkeley Azaad", style: "Classical Fusion" },
-  { name: "Stanford Dil Se", style: "Bollywood" },
-  { name: "USC Rangila", style: "Fusion" },
-  { name: "Cal Poly Bhangra", style: "Bhangra" },
-  { name: "UCSB Dhadkan", style: "Bollywood-Fusion" },
+  { name: "UA Om Shanti", style: "Bollywood Fusion", isExhibition: false },
+  { name: "CPP Tamanna", style: "Bollywood Fusion", isExhibition: false },
+  { name: "Cal Poly Andaaz", style: "Bollywood Fusion", isExhibition: false },
+  { name: "UCB Deewani", style: "Bollywood Fusion", isExhibition: false },
+  { name: "SMU Rang", style: "Bollywood Fusion", isExhibition: false },
+  { name: "SLU Shakti", style: "Bollywood Fusion", isExhibition: false },
+  { name: "UCSB Taara", style: "Bollywood Fusion", isExhibition: true },
+  { name: "UCSB Agni", style: "Indian Classical", isExhibition: true },
+  { name: "UCSB Raices", style: "Exhibition Act", isExhibition: true },
+  { name: "UCSD Da Real Punjabiz", style: "Bhangra Exhibition Act", isExhibition: true },
 ];
 
 const committeeSlides = [
@@ -194,7 +197,7 @@ export default function Home() {
 
             {/* CTA Button */}
             <a
-              href="https://www.axs.com/events/846198/nachle-deewane-tickets"
+              href="https://linktr.ee/ucsbdhadkan?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn2scFxMMfY5pYR-gAwReE6iFRnSFNwGLRwfUgSbka9gPTRpge1t3P-HmlJUE_aem_avR4dq5THPoLp190Oa-AwA"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:block btn-primary text-sm"
@@ -246,7 +249,7 @@ export default function Home() {
               ))}
               <li>
                 <a
-                  href="https://www.axs.com/events/846198/nachle-deewane-tickets"
+                  href="https://linktr.ee/ucsbdhadkan?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn2scFxMMfY5pYR-gAwReE6iFRnSFNwGLRwfUgSbka9gPTRpge1t3P-HmlJUE_aem_avR4dq5THPoLp190Oa-AwA"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block btn-primary text-sm mt-2"
@@ -319,28 +322,16 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="animate-fade-in-up animation-delay-400 flex flex-wrap items-center justify-center gap-4 pt-4">
               <a
-                href="https://www.axs.com/events/846198/nachle-deewane-tickets"
+                href="https://linktr.ee/ucsbdhadkan?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn2scFxMMfY5pYR-gAwReE6iFRnSFNwGLRwfUgSbka9gPTRpge1t3P-HmlJUE_aem_avR4dq5THPoLp190Oa-AwA"
             target="_blank"
             rel="noopener noreferrer"
                 className="btn-primary text-base"
               >
                 <span>Get Tickets</span>
               </a>
-              <a href="#charity" className="btn-outline text-base">
-                Support Our Cause
-              </a>
             </div>
 
-            {/* Quote */}
-            <blockquote className="animate-fade-in-up animation-delay-500 max-w-2xl mx-auto pt-8 border-t border-[#D4AF37]/20">
-              <p className="italic text-[#FFF8E7]/60 text-base md:text-lg">
-                &ldquo;I never had the chance to go to India. What you brought here — the energy, 
-                colors, & music — it&apos;s a gift to the Santa Barbara Community.&rdquo;
-              </p>
-              <cite className="block mt-3 text-[#D4AF37] text-sm font-medium not-italic tracking-wide">
-                — LOBERO THEATRE USHER
-              </cite>
-            </blockquote>
+
           </div>
         </div>
 
@@ -428,11 +419,19 @@ export default function Home() {
             {teams.map((team, index) => (
               <div
                 key={team.name}
-                className="card-hover group relative bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#D4AF37]/10"
+                className={`card-hover group relative rounded-lg overflow-hidden border ${
+                  team.isExhibition
+                    ? "bg-gradient-to-br from-[#2A1A1A] to-[#1A0D0D] border-[#FF6B1A]/20"
+                    : "bg-[#1A1A1A] border-[#D4AF37]/10"
+                }`}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {/* Gradient bar */}
-                <div className="h-1.5 bg-gradient-to-r from-[#FF6B1A] via-[#D4AF37] to-[#6B1A1A]" />
+                <div className={`h-1.5 bg-gradient-to-r ${
+                  team.isExhibition
+                    ? "from-[#FF6B1A] via-[#FF8C42] to-[#6B1A1A]"
+                    : "from-[#FF6B1A] via-[#D4AF37] to-[#6B1A1A]"
+                }`} />
                 
                 <div className="p-6">
                   <div className="flex items-start justify-between">
@@ -440,7 +439,13 @@ export default function Home() {
                       <h3 className="font-[family-name:var(--font-playfair)] text-lg font-semibold mb-1 text-[#FFF8E7] group-hover:text-[#FF6B1A] transition-colors">
                         {team.name}
                       </h3>
-                      <p className="text-[#D4AF37]/80 text-sm">{team.style}</p>
+                      <p className={`text-sm ${
+                        team.isExhibition
+                          ? "text-[#FF6B1A]/80 font-medium tracking-wide"
+                          : "text-[#D4AF37]/80"
+                      }`}>
+                        {team.style}
+                      </p>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-[#FF6B1A]/10 flex items-center justify-center">
                       <svg
@@ -668,94 +673,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Charity Section */}
-      <section id="charity" className="py-24 md:py-32 relative overflow-hidden bg-[#0D0D0D]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="space-y-8">
-              <div>
-                <span className="text-sm tracking-[0.3em] text-[#FF6B1A] font-medium uppercase">
-                  Making A Difference
-                </span>
-                <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-6xl font-bold mt-3 mb-6">
-                  <span className="gradient-text">Our Charity</span>
-                </h2>
-              </div>
-
-              <p className="text-[#FFF8E7]/70 text-lg leading-relaxed">
-                Nachle Deewane is more than a dance competition — it&apos;s a movement for change. 
-                Every ticket sold, every donation made, goes directly to supporting communities in need.
-              </p>
-
-              <p className="text-[#FFF8E7]/70 text-lg leading-relaxed">
-                This year, we&apos;re proud to partner with local and international organizations 
-                dedicated to education, healthcare, and community development in underserved areas.
-              </p>
-
-              <div className="bg-[#1A1A1A] rounded-lg p-6 border border-[#D4AF37]/20">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[#FF6B1A]/20 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-[#FF6B1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#FFF8E7] mb-2">100% of Donations Go Direct</h3>
-                    <p className="text-[#FFF8E7]/60 text-sm">
-                      Our student organization covers all operational costs, ensuring every dollar you donate 
-                      reaches those who need it most.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://www.linkedin.com/in/tanishmendki/"
-            target="_blank"
-            rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  <span>Donate Now</span>
-                </a>
-                <a href="mailto:info@ucsbdhadkan.com" className="btn-outline">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-            {/* Visual */}
-            <div className="relative">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-[#6B1A1A] via-[#4A0E0E] to-[#0D0D0D] p-1">
-                <div className="w-full h-full rounded-lg bg-[#1A1A1A] flex items-center justify-center relative overflow-hidden">
-                  {/* Decorative elements */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-3/4 h-3/4 border-2 border-[#D4AF37]/10 rounded-full animate-pulse" />
-                    <div className="absolute w-1/2 h-1/2 border border-[#FF6B1A]/20 rounded-full" />
-                  </div>
-                  
-                  <div className="relative text-center p-8">
-                    <div className="text-6xl md:text-7xl font-bold gradient-text font-[family-name:var(--font-playfair)]">
-                      $50K+
-                    </div>
-                    <p className="text-[#FFF8E7]/60 mt-4 text-lg">
-                      Raised Over the Years
-                    </p>
-                    <p className="text-[#D4AF37] text-sm mt-2 tracking-wide">
-                      And counting...
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating accent */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FF6B1A]/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-xl" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="py-12 border-t border-[#D4AF37]/10 bg-[#0D0D0D]">
