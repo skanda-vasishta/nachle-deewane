@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { name: "HOME", href: "#home" },
@@ -44,18 +45,20 @@ const committeeSlides = [
   {
     name: "Presidents",
     isPresidents: true,
+    groupPhoto: "/team/committees/presidents.jpg",
     heads: [],
     members: [
-      { name: "Tanish", title: "President" },
-      { name: "Bhavya", title: "President" },
-      { name: "Shashin", title: "President" },
+      { name: "Tanish", title: "President", photo: "/team/presidents/tanish.jpg" },
+      { name: "Bhavya", title: "President", photo: "/team/presidents/bhavya.jpg" },
+      { name: "Shashin", title: "President", photo: "/team/presidents/shashin.jpg" },
     ],
   },
   {
     name: "Finance",
+    groupPhoto: "/team/committees/finance.jpg",
     heads: [
-      { name: "Samith", title: "Director" },
-      { name: "Demira", title: "Director" },
+      { name: "Samith", title: "Director", photo: "/team/executives/samith.jpg" },
+      { name: "Demira", title: "Director", photo: "/team/executives/demira.jpg" },
     ],
     members: [
       { name: "Mitul" },
@@ -67,9 +70,10 @@ const committeeSlides = [
   },
   {
     name: "Outreach",
+    groupPhoto: "/team/committees/outreach.jpg",
     heads: [
-      { name: "Ritisha", title: "Director" },
-      { name: "Ria", title: "Director" },
+      { name: "Ritisha", title: "Director", photo: "/team/executives/ritisha.jpg" },
+      { name: "Ria", title: "Director", photo: "/team/executives/ria.jpg" },
     ],
     members: [
       { name: "Urvi" },
@@ -80,9 +84,10 @@ const committeeSlides = [
   },
   {
     name: "External Affairs",
+    groupPhoto: "/team/committees/externalaffairs.jpg",
     heads: [
-      { name: "Anisha", title: "Director" },
-      { name: "Akil", title: "Director" },
+      { name: "Anisha", title: "Director", photo: "/team/executives/anisha.jpg" },
+      { name: "Akil", title: "Director", photo: "/team/executives/akil.jpg" },
     ],
     members: [
       { name: "Kael" },
@@ -92,9 +97,10 @@ const committeeSlides = [
   },
   {
     name: "Event Management",
+    groupPhoto: "/team/committees/eventmanagement.jpg",
     heads: [
-      { name: "Sanvi", title: "Director" },
-      { name: "Mrunal", title: "Director" },
+      { name: "Sanvi", title: "Director", photo: "/team/executives/sanvi.jpg" },
+      { name: "Mrunal", title: "Director", photo: "/team/executives/mrunal.jpg" },
     ],
     members: [
       { name: "Aria" },
@@ -105,9 +111,10 @@ const committeeSlides = [
   },
   {
     name: "Venue & Tech",
+    groupPhoto: "/team/committees/venueandtech.jpg",
     heads: [
-      { name: "Dhruv", title: "Director" },
-      { name: "Maitri", title: "Director" },
+      { name: "Dhruv", title: "Director", photo: "/team/executives/dhruv.jpg" },
+      { name: "Maitri", title: "Director", photo: "/team/executives/maitri.jpg" },
     ],
     members: [
       { name: "Harman" },
@@ -119,9 +126,10 @@ const committeeSlides = [
   },
   {
     name: "Liaison",
+    groupPhoto: "/team/committees/liaison.jpg",
     heads: [
-      { name: "Sruthi", title: "Director" },
-      { name: "Abhi", title: "Director" },
+      { name: "Sruthi", title: "Director", photo: "/team/executives/sruthi.jpg" },
+      { name: "Abhi", title: "Director", photo: "/team/executives/abhi.jpg" },
     ],
     members: [
       { name: "Adhya" },
@@ -535,17 +543,26 @@ export default function Home() {
                       key={slide.name}
                       className="w-full flex-shrink-0 px-4 flex flex-col items-center"
                     >
-                      {/* Committee Name */}
+                      {/* Committee Name & Group Photo */}
                       <div className="text-center mb-8">
                         <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl font-bold text-[#FFB347]">
                           {slide.name}
                         </h3>
                         <div className="mt-3 w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+                        {slide.groupPhoto && (
+                          <Image
+                            src={slide.groupPhoto}
+                            alt={`${slide.name} Committee Group`}
+                            width={400}
+                            height={250}
+                            className="rounded-lg mx-auto my-4 object-cover"
+                          />
+                        )}
                       </div>
 
                       {/* Presidents Slide or Committee with Heads */}
                       {slide.isPresidents ? (
-                        /* Presidents Grid */
+                        /* Presidents Grid with Photos */
                         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                           {slide.members.map((member) => (
                             <div
@@ -553,47 +570,71 @@ export default function Home() {
                               className="group flex flex-col items-center"
                             >
                               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-[#FF6B1A]/30 to-[#D4AF37]/30 border-2 border-[#D4AF37] group-hover:border-[#FF6B1A] transition-all duration-300 group-hover:scale-105">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <span className="text-4xl md:text-5xl font-bold text-[#D4AF37] group-hover:text-[#FF6B1A] transition-colors">
-                                    {member.name.charAt(0)}
-                                  </span>
-                                </div>
+                                {"photo" in member && member.photo ? (
+                                  <Image
+                                    src={member.photo}
+                                    alt={member.name}
+                                    width={160}
+                                    height={160}
+                                    className="rounded-xl object-cover"
+                                  />
+                                ) : (
+                                  <div className="absolute inset-0 flex items-center justify-center">
+                                    <span className="text-4xl md:text-5xl font-bold text-[#D4AF37] group-hover:text-[#FF6B1A] transition-colors">
+                                      {member.name.charAt(0)}
+                                    </span>
+                                  </div>
+                                )}
                               </div>
                               <p className="text-[#FFF8E7] font-semibold text-base md:text-lg text-center">
                                 {member.name}
                               </p>
-                              <p className="text-[#FFB347] text-sm text-center mt-1">
-                                {member.title}
-                              </p>
+                              {"title" in member && member.title && (
+                                <p className="text-[#FFB347] text-sm text-center mt-1">
+                                  {member.title}
+                                </p>
+                              )}
                             </div>
                           ))}
                         </div>
                       ) : (
                         /* Committee with Heads and Members */
                         <div className="flex flex-col items-center w-full max-w-4xl">
-                          {/* Directors/Heads */}
-                          {slide.heads && slide.heads.length > 0 && (
+                          {/* Directors/Heads with Photos */}
+                          {committeeSlides[currentSlide].heads && committeeSlides[currentSlide].heads.length > 0 && (
                             <div className="mb-8">
                               <p className="text-center text-[#D4AF37] text-sm tracking-widest uppercase mb-4">Directors</p>
                               <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-                                {slide.heads.map((head) => (
+                                {committeeSlides[currentSlide].heads.map((head) => (
                                   <div
                                     key={head.name}
                                     className="group flex flex-col items-center"
                                   >
                                     <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden mb-3 bg-gradient-to-br from-[#FF6B1A]/30 to-[#D4AF37]/30 border-2 border-[#D4AF37] group-hover:border-[#FF6B1A] transition-all duration-300 group-hover:scale-105">
-                                      <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-2xl md:text-3xl font-bold text-[#D4AF37] group-hover:text-[#FF6B1A] transition-colors">
-                                          {head.name.charAt(0)}
-                                        </span>
-                                      </div>
+                                      {"photo" in head && head.photo ? (
+                                        <Image
+                                          src={head.photo}
+                                          alt={head.name}
+                                          width={112}
+                                          height={112}
+                                          className="rounded-xl object-cover"
+                                        />
+                                      ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                          <span className="text-2xl md:text-3xl font-bold text-[#D4AF37] group-hover:text-[#FF6B1A] transition-colors">
+                                            {head.name.charAt(0)}
+                                          </span>
+                                        </div>
+                                      )}
                                     </div>
                                     <p className="text-[#FFF8E7] font-semibold text-sm md:text-base text-center">
                                       {head.name}
                                     </p>
-                                    <p className="text-[#FFB347] text-xs text-center mt-0.5">
-                                      {head.title}
-                                    </p>
+                                    {"title" in head && head.title && (
+                                      <p className="text-[#FFB347] text-xs text-center mt-0.5">
+                                        {head.title}
+                                      </p>
+                                    )}
                                   </div>
                                 ))}
                               </div>
