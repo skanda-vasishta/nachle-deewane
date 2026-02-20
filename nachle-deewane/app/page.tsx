@@ -733,8 +733,17 @@ export default function Home() {
               </a>
 
               {/* ooshirts.com Ad */}
-              <div className="mt-6 text-xs text-[#FFF8E7]/50">
-                UCSB Dhadkan endorses <a href="https://www.ooshirts.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B1A]">ooshirts.com</a> for fast, affordable, and high-quality custom t-shirts!
+              <div className="mt-6">
+                <Image
+                  src="/IMG_6818.JPG"
+                  alt="ooshirts.com - Custom T-Shirts"
+                  width={200}
+                  height={120}
+                  className="rounded-lg mb-2 object-cover"
+                />
+                <p className="text-xs text-[#FFF8E7]/50">
+                  UCSB Dhadkan endorses <a href="https://www.ooshirts.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B1A]">ooshirts.com</a> for fast, affordable, and high-quality custom t-shirts!
+                </p>
               </div>
             </div>
 
