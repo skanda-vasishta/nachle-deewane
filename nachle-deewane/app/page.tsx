@@ -352,7 +352,6 @@ export default function Home() {
                   <li>Bus Pass to Post-Show: <span className="font-semibold">$11</span></li>
                   <li>Post-Show Concert + Bus Pass: <span className="font-semibold">$29</span></li>
                 </ul>
-                <p className="text-xs mt-2 text-[#FFF8E7]/50">Fill prices in the admin file or contact us to update.</p>
               </div>
             </div>
 
