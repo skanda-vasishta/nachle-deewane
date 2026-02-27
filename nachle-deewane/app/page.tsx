@@ -41,7 +41,6 @@ const teams = [
   { name: "UCSB Taara", style: "Bollywood Fusion", isExhibition: true },
   { name: "UCSB Agni", style: "Indian Classical", isExhibition: true },
   { name: "UCSB Raices", style: "Exhibition Act", isExhibition: true },
-  { name: "UCSD Da Real Punjabiz", style: "Bhangra Exhibition Act", isExhibition: true },
 ];
 
 const committeeSlides = [
@@ -505,11 +504,6 @@ export default function Home() {
           </div>
 
           {/* More teams CTA */}
-          <div className="text-center mt-12">
-            <p className="text-[#FFF8E7]/50 text-sm">
-              More teams to be announced soon!
-            </p>
-          </div>
         </div>
       </section>
 
