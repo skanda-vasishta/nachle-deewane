@@ -13,18 +13,21 @@ const navLinks = [
 const judges = [
   {
     name: "Amita Batra",
-    title: "Bollywood Fusion Judge",
-    bio: "Details coming soon.",
+    title: "Movement Artist & Choreographer",
+    photo: "/judges/amita.jpg",
+    bio: `Amita Batra is a story-driven movement artist currently based in Los Angeles, CA. Formally rooted in Kathak, the Indian Classical art of storytelling as well as modern/contemporary dance and theater, Amita's style celebrates telling the power of storytelling without saying a word. Her experience as a movement artist includes working with Yash Raj Films, The Academy of Motion Pictures, NBC-Universal, Grammy-nominated Radhika Vekaria, and various union & independent film and theater projects. Additionally, she runs her storytelling dance company Boundless by Amita, which focuses on experimental movement for stage, camera, and unconventional spaces.`,
   },
   {
     name: "Saffat Al Munsur",
-    title: "Bollywood Fusion Judge",
-    bio: "Details coming soon.",
+    title: "Dancer, Choreographer & Educator",
+    photo: "/judges/saffat.jpeg",
+    bio: `Saffat is a Bay Area–based professional dancer, choreographer, and educator whose work is rooted in hip hop culture and its intersection with his Desi identity. He began his dance journey in Qatar in 2006, inspired by local b-boys in his neighborhood, and has since dedicated himself to understanding hip hop as both an art form and a cultural movement. Mentored by legends such as Mr. Wiggles and B-boy Wicket, Saffat emphasizes history, musicality, and cultural context in his teaching. His classes focus on understanding the music first—connecting rhythm, people, and intention—before diving into movement and choreography. He is currently a principal dancer with Ishami Dance Company which is an Indian-Contemporary dance company based in the Bay Area. He has taught across North America and worked with artists including Adnan Sami, Arjun, Fateh, Anirudh Ravichander, and Bohemia. Saffat also co-founded the Desi Dance Community in 2022 to grow a community of diverse dancers rooted in learning in the Bay Area.`,
   },
   {
     name: "Jai Loonker",
-    title: "Bollywood Fusion Judge",
-    bio: "Details coming soon.",
+    title: "Professional Dancer",
+    photo: "/judges/jai.jpeg",
+    bio: `Jai Loonker is a professional dancer known for his fusion of Bollywood and hip-hop styles. He has performed with Karan Aujla, appeared in a Tesher music video, and even been reposted by Hrithik Roshan on social media. Now based in Los Angeles, Jai continues to train, collaborate with fellow creators, and share his passion for the art.`,
   },
 ];
 
@@ -331,12 +334,26 @@ export default function Home() {
             <div className="animate-fade-in-up animation-delay-400 flex flex-wrap items-center justify-center gap-4 pt-4">
               <a
                 href="https://linktr.ee/ucsbdhadkan?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn2scFxMMfY5pYR-gAwReE6iFRnSFNwGLRwfUgSbka9gPTRpge1t3P-HmlJUE_aem_avR4dq5THPoLp190Oa-AwA"
-            target="_blank"
-            rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary text-base"
               >
                 <span>Get Tickets</span>
               </a>
+            </div>
+
+            {/* Tickets & Pricing (placeholders) */}
+            <div className="mt-6 flex justify-center">
+              <div className="bg-[#1A1A1A] rounded-lg p-4 border border-[#D4AF37]/10 text-sm text-[#FFF8E7]/70">
+                <h4 className="text-[#FF6B1A] font-semibold mb-2">Tickets & Pricing</h4>
+                <ul className="space-y-1">
+                  <li>Show: <span className="font-semibold">$23</span></li>
+                  <li>Post-Show Concert: <span className="font-semibold">$21</span></li>
+                  <li>Bus Pass to Post-Show: <span className="font-semibold">$11</span></li>
+                  <li>Post-Show Concert + Bus Pass: <span className="font-semibold">$29</span></li>
+                </ul>
+                <p className="text-xs mt-2 text-[#FFF8E7]/50">Fill prices in the admin file or contact us to update.</p>
+              </div>
             </div>
 
 
@@ -380,9 +397,21 @@ export default function Home() {
                   <div className="absolute top-0 right-0 w-32 h-1 bg-gradient-to-l from-[#FF6B1A] to-transparent transform rotate-45 translate-x-8 -translate-y-4" />
                 </div>
 
-                {/* Avatar placeholder */}
-                <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#FF6B1A] to-[#6B1A1A] flex items-center justify-center text-3xl font-bold text-white">
-                  {judge.name.charAt(0)}
+                {/* Avatar (photo if available) */}
+                <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-[#FF6B1A] to-[#6B1A1A] flex items-center justify-center">
+                  {judge.photo ? (
+                    <Image
+                      src={judge.photo}
+                      alt={judge.name}
+                      width={96}
+                      height={96}
+                      className="object-cover w-full h-full"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                      {judge.name.charAt(0)}
+                    </div>
+                  )}
                 </div>
 
                 <h3 className="font-[family-name:var(--font-playfair)] text-xl font-semibold text-center mb-2 text-[#FFF8E7]">
